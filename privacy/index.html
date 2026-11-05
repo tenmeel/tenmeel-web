@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>プライバシーポリシー｜Tenmeel（テンミール）</title>
+  <meta name="description" content="Tenmeel（Google フォームの小テストを AI で採点するアドオン）が扱う情報と、その扱い方の説明です。">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="alternate" hreflang="ja" href="https://tenmeel.com/privacy/">
+  <link rel="alternate" hreflang="en" href="https://tenmeel.com/en/privacy/">
+  <link rel="stylesheet" href="/fonts/fonts.css">
+  <link rel="stylesheet" href="/tw.css">
+  <link rel="stylesheet" href="/base.css">
+</head>
+<body class="bg-slate-50 font-sans text-slate-700 antialiased">
+
+
+  <header class="sticky top-0 z-50 border-b border-slate-200/60 bg-white/80 backdrop-blur-md">
+    <div class="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
+      <a href="/" class="flex flex-none items-center gap-2.5 font-display text-lg font-extrabold text-slate-900">
+        <img src="/favicon.svg" alt="" width="30" height="30" class="h-[30px] w-[30px]">
+        Tenmeel
+      </a>
+      <nav aria-label="サイト内" class="flex items-center gap-3 whitespace-nowrap text-[13px] font-medium text-slate-500 min-[400px]:gap-5 sm:gap-7 sm:text-sm">
+        <a class="hidden hover:text-slate-900 sm:inline" href="/#features">特長</a>
+        <a class="hidden hover:text-slate-900 sm:inline" href="/#how">使い方</a>
+        <a class="hidden text-slate-900 min-[400px]:inline" href="/privacy/" aria-current="page">プライバシー</a>
+        <a class="rounded-full bg-slate-900 px-3.5 py-2 text-white hover:bg-slate-700 sm:px-4" href="/#contact">お問い合わせ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="doc mx-auto max-w-3xl px-4 pb-20 pt-12 sm:px-6 sm:pt-16">
+    <p class="mb-4 inline-flex rounded-full border border-indigo-100 bg-indigo-50 px-3.5 py-1.5 text-xs font-bold text-indigo-600">Privacy Policy</p>
+    <h1 class="text-3xl font-bold leading-snug tracking-tight sm:text-4xl">Tenmeel プライバシーポリシー</h1>
+    <p class="mb-8 mt-3 text-sm text-slate-500">施行日：2026年11月6日　／　最終更新日：2026年11月6日　／　運営者：MCテック（以下「開発者」）　／　<a href="/en/privacy/" hreflang="en" lang="en">English</a></p>
+
+    <p>Tenmeel（テンミール、以下「本アドオン」）は、先生が Google フォームで実施した記述式の小テストを AI で採点し、点数とコメントをフォームに書き込むアドオンです。このポリシーは、本アドオンが扱う情報と、その扱い方を説明するものです。</p>
+
+    <h2 id="summary">1. いちばん大切なこと</h2>
+    <ul class="key-points">
+      <li><strong>生徒の答案は、開発者のサーバーを経由しません。</strong>採点の処理は、本アドオンを使う先生の Google アカウントの中（Google Apps Script）で行われます。開発者が答案や採点結果を見たり、受け取ったりすることはありません。</li>
+      <li><strong>AI に送るのは、問題文と生徒の回答（および先生が設定した採点方針）だけです。</strong>生徒の氏名・メールアドレスなど、個人を識別する情報は AI への送信内容に含めません。</li>
+      <li><strong>AI の利用には、先生ご自身の API キーを使います。</strong>AI の利用料金は、先生が AI の提供会社に直接支払います。開発者が先生の API キーを受け取ることはありません。</li>
+    </ul>
+
+    <h2 id="data">2. 本アドオンが利用する情報と使い方</h2>
+    <p>本アドオンは、先生の許可（Google の許可画面での同意）を得たうえで、次の情報を利用します。いずれも<strong>採点の機能を提供するためだけに</strong>使います。</p>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>情報</th><th>使い方</th></tr></thead>
+        <tbody>
+          <tr><td>先生が開いている Google フォーム（設問、配点、回答、フォームの説明文）</td><td>採点する設問と配点の確認、回答の読み取りと採点、点数とコメント（フィードバック）のフォームへの書き込みに使用します。また、AI が作成したコメントであることを示す一文を、フォームの説明文に追加・削除するために使用します（先生が書いた説明文には手を加えません）。</td></tr>
+          <tr><td>採点するフォームにリンクした回答のスプレッドシート（以下「回答のシート」）</td><td>回答の読み取りに使用します。また、右側の列に AI の点数・コメント・検算・氏名を書き込み、別のタブ（「Tenmeel設問」「Tenmeelログ」「Tenmeel控え_…」「Tenmeel名前順」）に設問の一覧・ログ・採点し直す前の控え・名前順の一覧を書き込むために使用します。回答のシートは、先生が Google フォームの「スプレッドシートにリンク」で作ります。本アドオンが回答のシートを作ることはありません。</td></tr>
+          <tr><td>回答者のメールアドレス・タイムスタンプ（フォームで収集している場合）</td><td>回答のシートにもともと含まれます。本アドオンは、採点結果を正しい回答に書き込むための照合にだけ使用します。AI には送信しません。</td></tr>
+          <tr><td>生徒の氏名（フォームに「氏名」の設問がある場合、または先生が名簿に登録した場合）</td><td>誰の結果かを先生が確認するために使用します。名簿に登録された名前、名簿に無い場合はフォームの「氏名」の設問の答えを、回答のシートの「Tenmeel｜氏名」の列に書き込みます（どちらも無ければ空欄です）。AI には送信しません。学校のアカウント名簿などから自動で取得することはありません。</td></tr>
+          <tr><td>名簿（任意）：先生が登録する生徒のメールアドレスと名前（クラスごと）</td><td>先生が名簿の機能を使う場合だけ、本アドオンが先生の Google ドライブに「Tenmeel名簿」というスプレッドシートを作ります。先生はそこにクラスごとに生徒のメールアドレスと名前を登録し、本アドオンは、フォームごとに先生が選んだクラスの名前を、回答のシートの「Tenmeel｜氏名」の列に書き込むために使用します。AI には送信しません。</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>本アドオンが Google に求める権限（スコープ）と、その用途は次のとおりです。</p>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>権限</th><th>用途</th></tr></thead>
+        <tbody>
+          <tr><td><code>forms.currentonly</code><br>（開いているフォームのみの閲覧・編集）</td><td>開いているフォームの設問・回答の読み取りと、点数・フィードバックの書き込みに使用します。フォームにリンクされた回答のシートの確認と、AI が作成したことを示す一文（セクション8参照）のフォームの説明文への追加・削除にも使用します。お試し機能（セクション9の「お試し機能について」参照）では、空のフォームにサンプルの設問を入れ、サンプルの回答を送信するために使用します。</td></tr>
+          <tr><td><code>drive.file</code><br>（本アドオンが作成したファイルと、先生が選んだファイルのみ）</td><td>本アドオンが作った「Tenmeel」フォルダ・名簿（任意）と、先生がファイル選択画面で選んだ回答のシートだけを読み書きするために使用します。先生のほかのファイルやフォルダは見えません。</td></tr>
+          <tr><td><code>script.external_request</code><br>（外部サービスへの接続）</td><td>AI の提供会社（Anthropic）の API に採点を依頼するために使用します。接続先は Anthropic の API（api.anthropic.com）だけに限っています。</td></tr>
+          <tr><td><code>script.container.ui</code><br>（画面の表示）</td><td>フォームの画面にメニュー・サイドバー・ダイアログを表示するために使用します。</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>本アドオンは、先生の Google ドライブ全体や、ほかのフォーム・ファイルへのアクセスは求めません。必要な機能に対して最小限の権限のみを求めます。</p>
+    <p>回答のシートは、フォームごとに最初の1回だけ、本アドオンのサイドバーの［回答のシートを選ぶ］から、Google のファイル選択画面で選んでいただきます（同僚と同じフォームを使う場合も、先生ごとに1回選びます）。ファイル選択画面は Google が提供する画面です。本アドオンが受け取るのは、先生が選んだファイルの ID だけで、選んだファイルの情報が開発者に届くことはありません。</p>
+
+    <h2 id="ai">3. AI の提供会社への送信</h2>
+    <p>採点のため、次の内容を AI の提供会社に送信します。送信先は <strong>Anthropic（Claude）だけ</strong>です。AI のモデルは Anthropic の Claude を使います。先生は、フォームごとに、ほかの Anthropic のモデルに変えられます。</p>
+    <ul>
+      <li>送信するもの：設問の文、満点（配点）、先生が設定した採点方針（全体と設問ごと）、フォームの解答集に登録された正解と一致した答えの例、生徒の回答本文、照合用の番号（1回の依頼の中で回答に振る 1〜8 の番号で、個人を特定するものではありません）</li>
+      <li>送信しないもの：生徒の氏名、メールアドレス、回答のタイムスタンプ、回答の ID、名簿、その他の識別情報</li>
+    </ul>
+    <p><strong>ご注意：</strong>生徒が回答本文の中に自分の氏名などを書いた場合、その内容はそのまま AI に送信されます。</p>
+    <p>送信された内容の扱いは、Anthropic の<a href="https://www.anthropic.com/legal/commercial-terms">商用規約</a>と<a href="https://www.anthropic.com/legal/privacy">プライバシーポリシー</a>に従います。Anthropic の商用規約では、API を通じて送信された内容を、Anthropic が AI モデルの学習に使わないことが定められています。</p>
+    <p>本アドオンは、ほかの AI の提供会社（Google の Gemini、OpenAI など）には送信しません。</p>
+
+    <h2 id="storage">4. 情報の保存場所</h2>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>情報</th><th>保存場所</th></tr></thead>
+        <tbody>
+          <tr><td>API キー</td><td>先生ごとの Apps Script の保存領域（ユーザープロパティ）。ほかの利用者や開発者からは見えません。フォームや回答のシートには書き込みません</td></tr>
+          <tr><td>採点結果（点数・コメント）</td><td>先生の Google フォームと、回答のシートの右側の列（合計点は、Google フォームが回答のシートに書く「点数」の列だけを使います）</td></tr>
+          <tr><td>回答者のメールアドレス・氏名</td><td>回答のシート（フォームの回答にもともと含まれるもの、または名簿から写したもの）</td></tr>
+          <tr><td>名簿（任意）</td><td>先生の Google ドライブの「Tenmeel名簿」のスプレッドシート。名簿の場所は先生ごとの Apps Script の保存領域（ユーザープロパティ）に、どのクラスを使うかはフォームごとの保存領域（ドキュメントプロパティ）に記録します</td></tr>
+          <tr><td>実行ログ・採点方針などの設定</td><td>ログは回答のシートの「Tenmeelログ」のタブ。採点方針は、そのフォーム専用の Apps Script の保存領域（ドキュメントプロパティ）に保存し、回答のシートの「Tenmeel設問」のタブには読むための写しを書きます</td></tr>
+          <tr><td>採点し直す前の点数とコメント</td><td>設問を採点し直したとき、直前の点数とコメントの控えを、回答のシートの「Tenmeel控え_…」のタブに残します</td></tr>
+          <tr><td>中断した採点の再開位置</td><td>専用の記録は持ちません。回答のシートの AI の点数の列が空の回答を、まだ採点していない回答として、続きから採点します</td></tr>
+          <tr><td>フォームごとの設定（AI のモデル、AI 作成の表示、名簿のクラスなど）</td><td>そのフォーム専用の Apps Script の保存領域（ドキュメントプロパティ）</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>名簿のスプレッドシートは、本アドオンが先生のマイドライブに作る「Tenmeel」フォルダに保存します（フォルダは別の場所に移動してもかまいません）。回答のシートは、先生が Google フォームから作った場所にあります。これらはすべて先生の Google アカウントの中に保存され、開発者のサーバーには保存されません。</p>
+
+    <h2 id="deletion">5. 保存期間と削除</h2>
+    <ul>
+      <li>API キーは、本アドオンのサイドバーの「⚙ 設定」→［APIキーを削除］でいつでも削除できます。<strong>本アドオンをアンインストールする前に、この操作でキーを削除してください。</strong></li>
+      <li>回答のシートと名簿のスプレッドシートは先生の Google ドライブにあり、本アドオンをアンインストールしても残ります。回答のシートに本アドオンが足した列やタブが不要になったら、先生が削除してください（フォームの回答そのものには影響しません）。フォームに書き込んだ点数・コメントは、フォームの採点機能で変更・削除できます。</li>
+      <li>回答のシートと名簿には、生徒の氏名・メールアドレス（回答のシートには回答も）が含まれます。回答のシートをほかの先生と共有している場合、本アドオンが足した列やタブ（AI のコメントなど）も、共有している人から見えます。共有は、学校の個人情報の取り扱いのルールに従ってください。</li>
+      <li>採点方針とフォームごとの設定は、そのフォーム専用の保存領域にあり、フォームを削除すると一緒に消えます。</li>
+      <li>開発者は、これらの情報を保存・保持していません。</li>
+      <li><a href="https://myaccount.google.com/permissions">Google アカウントの設定</a>から、本アドオンへのアクセス許可をいつでも取り消せます。</li>
+    </ul>
+
+    <h2 id="sharing">6. 第三者への提供</h2>
+    <p>開発者は、本アドオンを通じて得た情報を、販売したり、広告に使ったり、第三者に提供したりしません。AI への送信（3.）は、先生の操作による採点のためだけに行います。</p>
+
+    <h2 id="google-api">7. Google API から取得した情報の取り扱い</h2>
+    <p>本アドオンが Google API から取得した情報の利用と他のアプリへの転送は、限定使用の要件を含む <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API サービスのユーザーデータに関するポリシー</a>に従います。Google Workspace API から取得したデータを、汎用の AI・機械学習モデルの開発・改良・学習に使うことはありません。</p>
+
+    <h2 id="minors">8. 未成年（高校生以下）への利用について</h2>
+    <p>本アドオンでは、生徒の回答を AI が採点し、コメントを作成します。18歳未満の生徒の答案を採点する場合は、次の点にご注意ください。</p>
+    <ul>
+      <li>本アドオンは先生が操作するもので、生徒が本アドオンや AI を直接操作することはありません。生徒は、先生が確認したうえで返した点数とコメントを受け取ります。</li>
+      <li>Anthropic は、未成年に関わる用途について、AI を使っていることを利用者に明示することなどを求めています（<a href="https://support.claude.com/en/articles/9307344-responsible-use-of-anthropic-s-models-guidelines-for-organizations-serving-minors">Anthropic のガイドライン</a>）。
+        <ul>
+          <li>生徒に返すコメントが AI によるものであることを、生徒に伝えてください。本アドオンは、初期設定でフォームの説明文に「※AIが作成したコメントを、先生が確認しています」という一文を表示します。この一文は本アドオンが追加・削除し、先生が書いた説明文には手を加えません。設定で表示しないこともできますが、高校生以下の生徒に使う場合は表示したままにすることをおすすめします。</li>
+          <li>本アドオンは、点数・コメントを生徒に自動では返しません。先生が内容を確認してから、Google フォームの「スコアを通知」で生徒に返してください。Google フォームの「成績の発表」が「送信直後に表示する」になっていると、書き込んだ時点でコメントが生徒に見えてしまうため、本アドオンはフォームごとに最初の書き込みの前に「確認後に手動で表示する」になっていることを先生に確かめ、なっていない場合は書き込みません。</li>
+        </ul>
+      </li>
+      <li>学校・自治体の方針（生成 AI の利用ルール、保護者への説明など）に従ってご利用ください。</li>
+    </ul>
+
+    <h2 id="developer">9. 開発者が受け取る情報</h2>
+    <p>開発者が受け取るのは、先生からのお問い合わせ（メールなど）でお知らせいただいた内容だけです。お問い合わせへの回答のためにのみ使います。</p>
+    <p>本アドオンには、利用状況やエラーの情報を開発者に自動で送る仕組みはありません。不具合のご報告の際は、回答のシートの「Tenmeelログ」のタブの内容を先生からお送りいただく場合があります。</p>
+    <h3>お試し機能について</h3>
+    <p>API キーなしで動作を確かめられる「お試し」機能では、先生が新しく作った空のフォームに、本アドオンの［このフォームをお試し用にする］でサンプルの設問を入れて使います。そこに本アドオンに同梱されたサンプルの答案を回答として送信し、あらかじめ用意した採点結果を書き込みます。お試しでは AI を呼び出さず、<strong>データを外部（AI の提供会社・開発者を含む）に一切送信しません</strong>。お試しは、サンプルの目印があるフォームでだけ動きます。［このフォームをお試し用にする］は、設問も回答もない空のフォームでだけ使えるので、本物のテストが書き換えられたり、サンプルの回答が入ったりすることはありません。画面・回答のシート・フィードバックには「サンプルの採点結果です」と表示します。</p>
+
+    <h2 id="security">10. 安全管理</h2>
+    <ul>
+      <li>API キーはコードやフォーム・スプレッドシートの本文に書き込まず、先生ごとの Apps Script の保存領域（ユーザープロパティ）に保存します。</li>
+      <li>本アドオンと AI の提供会社との通信は暗号化（HTTPS）されています。</li>
+    </ul>
+
+    <h2 id="changes">11. このポリシーの変更</h2>
+    <p>このポリシーを変更する場合は、このページを更新し、更新日をお知らせします。本アドオンが利用する情報や、その使い方を変更する場合は、変更の前にアドオンの画面でお知らせし、先生の同意を得てから新しい使い方を始めます。</p>
+
+    <h2 id="website">12. このウェブサイトについて</h2>
+    <p>このウェブサイト（tenmeel.com）は、Cookie・アクセス解析・広告のタグを使っていません。文字の書体やデザイン用のファイルもすべてこのサイトに置いており、外部のサービスから読み込んでいません。</p>
+    <p>このウェブサイトは GitHub Pages（GitHub, Inc.）で公開しています。GitHub は、サイトの運営と安全のために、閲覧者の IP アドレスなどのアクセス記録を取得することがあります（<a href="https://docs.github.com/ja/site-policy/privacy-policies/github-general-privacy-statement">GitHub のプライバシーに関する声明</a>）。開発者はこの記録を利用していません。</p>
+    <p>このウェブサイトの書体には、Noto Sans JP と Plus Jakarta Sans（いずれも <a href="https://openfontlicense.org/">SIL Open Font License 1.1</a>）を使っています。</p>
+
+    <h2 id="contact">13. お問い合わせ</h2>
+    <p>MCテック<br>
+      メール：<a href="mailto:support@tenmeel.com">support@tenmeel.com</a><br>
+      住所：お問い合わせいただいた場合、遅滞なくお知らせします。</p>
+  </main>
+
+  <footer class="border-t border-slate-200 bg-slate-50">
+    <div class="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+      <div class="flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
+        <a href="/" class="flex items-center gap-2.5 font-display text-base font-extrabold text-slate-900">
+          <img src="/favicon.svg" alt="" width="26" height="26" class="h-[26px] w-[26px]">
+          Tenmeel
+        </a>
+        <nav aria-label="フッター" class="flex flex-wrap gap-x-7 gap-y-3 text-sm font-medium text-slate-600">
+          <a class="hover:text-slate-900" href="/terms/">利用規約</a>
+          <a class="hover:text-slate-900" href="/privacy/">プライバシーポリシー</a>
+          <a class="hover:text-slate-900" href="/en/privacy/" hreflang="en" lang="en">Privacy Policy (English)</a>
+          <a class="hover:text-slate-900" href="mailto:support@tenmeel.com">お問い合わせ</a>
+        </nav>
+      </div>
+      <div class="mt-10 border-t border-slate-200 pt-6 text-xs leading-6 text-slate-400">
+        <p>© 2026 MCテック</p>
+        <p>Google フォームは Google LLC の商標です。Claude は Anthropic PBC の商標です。Tenmeel は Google の製品ではなく、Google による承認・提携を受けたものではありません。</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

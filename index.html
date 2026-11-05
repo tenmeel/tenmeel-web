@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tenmeel（テンミール）｜記述式の小テストを AI で採点するアドオン</title>
+  <meta name="description" content="Tenmeel は、Google フォームで実施した記述式の小テストを AI が採点し、点数とコメントをフォームに直接書き込むアドオンです。答案は開発者のサーバーを経由しません。">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="stylesheet" href="/fonts/fonts.css">
+  <link rel="stylesheet" href="/tw.css">
+  <link rel="stylesheet" href="/base.css">
+</head>
+<body class="bg-slate-50 font-sans text-slate-700 antialiased">
+
+
+  <header class="sticky top-0 z-50 border-b border-slate-200/60 bg-white/80 backdrop-blur-md">
+    <div class="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
+      <a href="/" class="flex flex-none items-center gap-2.5 font-display text-lg font-extrabold text-slate-900">
+        <img src="/favicon.svg" alt="" width="30" height="30" class="h-[30px] w-[30px]">
+        Tenmeel
+      </a>
+      <nav aria-label="サイト内" class="flex items-center gap-3 whitespace-nowrap text-[13px] font-medium text-slate-500 min-[400px]:gap-5 sm:gap-7 sm:text-sm">
+        <a class="hidden hover:text-slate-900 sm:inline" href="#features">特長</a>
+        <a class="hidden hover:text-slate-900 sm:inline" href="#how">使い方</a>
+        <a class="hidden hover:text-slate-900 min-[400px]:inline" href="/privacy/">プライバシー</a>
+        <a class="rounded-full bg-slate-900 px-3.5 py-2 text-white hover:bg-slate-700 sm:px-4" href="#contact">お問い合わせ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ヒーロー -->
+    <section class="relative overflow-hidden">
+      <div aria-hidden="true" class="pointer-events-none absolute inset-0">
+        <div class="absolute -top-40 right-[-10%] h-[480px] w-[480px] rounded-full bg-indigo-200/40 blur-3xl"></div>
+        <div class="absolute bottom-[-30%] left-[-10%] h-[420px] w-[420px] rounded-full bg-emerald-200/30 blur-3xl"></div>
+      </div>
+      <div class="relative mx-auto grid max-w-6xl items-center gap-12 px-4 pb-20 pt-14 sm:px-6 sm:pt-20 lg:grid-cols-[1.05fr_1fr] lg:gap-14 lg:pb-28">
+        <div>
+          <p class="inline-flex items-center gap-2 rounded-full border border-indigo-100 bg-indigo-50 px-3.5 py-1.5 text-xs font-bold text-indigo-600 sm:text-sm">
+            <span class="h-1.5 w-1.5 rounded-full bg-indigo-500"></span>
+            Google フォームの小テストのための AI 採点アドオン
+          </p>
+          <h1 class="mt-6 text-[28px] min-[400px]:text-4xl font-bold leading-tight tracking-tight text-slate-900 sm:text-5xl sm:leading-[1.2]">
+            記述式の小テストを、<br>採点の負担なく。
+          </h1>
+          <p class="mt-6 max-w-xl text-base leading-8 text-slate-600 sm:text-lg sm:leading-9">
+            Tenmeel（テンミール）は、Google フォームで実施した記述式の小テストを AI が採点し、<strong class="font-bold text-indigo-600">点数とコメントをフォームに直接書き込む</strong>アドオンです。先生は内容を確認して、生徒に返すだけ。
+          </p>
+          <div class="mt-9 flex flex-col items-start gap-3">
+            <!-- 公開後：href に Marketplace の掲載ページの URL を入れ、aria-disabled を外して色を indigo に -->
+            <a aria-disabled="true" class="inline-flex cursor-default items-center gap-2 rounded-full bg-slate-200 px-6 py-3 text-sm font-bold text-slate-500">
+              Google Workspace Marketplace で公開予定
+            </a>
+            <p class="text-sm text-slate-500">点 を 見〜る！<span class="ml-3 font-display font-bold text-slate-700">Tenmeel</span></p>
+          </div>
+        </div>
+
+        <!-- 採点プレビュー（CSS で描いた画面イメージ） -->
+        <figure class="relative mx-auto w-full max-w-md lg:max-w-none">
+          <div class="overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-xl shadow-indigo-900/5">
+            <div class="h-2 bg-indigo-600"></div>
+            <div class="flex items-center justify-between border-b border-slate-100 px-5 py-3.5">
+              <div>
+                <p class="text-sm font-bold text-slate-900">小テスト 第3回：Web のしくみ</p>
+                <p class="text-xs text-slate-400">回答 12 / 20 ・ 問2</p>
+              </div>
+              <span class="flex-none whitespace-nowrap rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-bold text-emerald-600">採点済み</span>
+            </div>
+            <div class="space-y-4 px-5 py-5">
+              <div>
+                <p class="text-xs font-bold text-slate-400">問2　HTTP の役割を説明しなさい。（5点）</p>
+                <p class="mt-2 rounded-xl bg-slate-50 px-4 py-3 text-sm leading-7 text-slate-700">
+                  Web サーバーとクライアントの間で、ブラウザがページを要求するときの通信の決まり（プロトコル）。
+                </p>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="inline-flex items-center gap-1.5 rounded-full bg-emerald-600 px-3 py-1 text-xs font-bold text-white">
+                  <svg viewBox="0 0 20 20" fill="currentColor" class="h-3.5 w-3.5" aria-hidden="true"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 0 1 0 1.4l-7.5 7.5a1 1 0 0 1-1.4 0L3.3 9.7a1 1 0 1 1 1.4-1.4l3.8 3.8 6.8-6.8a1 1 0 0 1 1.4 0Z" clip-rule="evenodd"/></svg>
+                  点数：3 / 5 点
+                </span>
+                <span class="text-xs text-slate-400">Tenmeel が書き込み</span>
+              </div>
+              <div class="rounded-xl border border-indigo-100 bg-indigo-50/60 px-4 py-3">
+                <p class="flex items-center gap-1.5 text-xs font-bold text-indigo-600">
+                  <svg viewBox="0 0 20 20" fill="currentColor" class="h-3.5 w-3.5" aria-hidden="true"><path d="M10 2.5l1.6 4 4 1.6-4 1.6-1.6 4-1.6-4-4-1.6 4-1.6L10 2.5Zm5.5 9.5.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8.8-2Z"/></svg>
+                  AI のコメント
+                </p>
+                <p class="mt-1.5 text-sm leading-7 text-slate-700">サーバーが返すレスポンスについての説明が不足（-2点）。</p>
+              </div>
+            </div>
+          </div>
+          <figcaption class="mt-3 text-center text-xs text-slate-400">画面イメージ（サンプル）</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- できること -->
+    <section id="features" class="border-t border-slate-200/70 bg-white py-20 sm:py-24">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6">
+        <h2 class="text-2xl font-bold text-slate-900 sm:text-3xl">Tenmeel でできること</h2>
+        <div class="mt-10 grid gap-5 md:grid-cols-3">
+          <div class="rounded-2xl border border-slate-200/80 bg-white p-7 shadow-sm">
+            <div class="flex items-center justify-between">
+              <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6" aria-hidden="true"><path d="M9 12l2 2 4-4"/><rect x="4" y="3" width="16" height="18" rx="3"/></svg>
+              </span>
+              <span class="font-display text-4xl font-extrabold text-slate-100">01</span>
+            </div>
+            <h3 class="mt-5 text-lg font-bold leading-snug text-slate-900">採点とコメントが、フォームに直接入る</h3>
+            <p class="mt-3 text-[15px] leading-7 text-slate-600">AI が設問ごとに採点し、点数を Google フォームの点数の欄に、よかった点・足りない点のコメントをフィードバックの欄に書き込みます。先生は確認して、必要なところだけ直して返します。</p>
+          </div>
+          <div class="rounded-2xl border border-slate-200/80 bg-white p-7 shadow-sm">
+            <div class="flex items-center justify-between">
+              <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>
+              </span>
+              <span class="font-display text-4xl font-extrabold text-slate-100">02</span>
+            </div>
+            <h3 class="mt-5 text-lg font-bold leading-snug text-slate-900">採点直後から、分析がそのまま使える</h3>
+            <p class="mt-3 text-[15px] leading-7 text-slate-600">結果は Google フォームの採点機能にそのまま入るので、フォームの「回答」画面で、設問ごとの正答状況やクラス全体のつまずきをすぐに確認できます。</p>
+          </div>
+          <div class="rounded-2xl border border-slate-200/80 bg-white p-7 shadow-sm">
+            <div class="flex items-center justify-between">
+              <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 8.2-8 9-4.6-.8-8-4.5-8-9V6l8-3Z"/><path d="M9 12l2 2 4-4"/></svg>
+              </span>
+              <span class="font-display text-4xl font-extrabold text-slate-100">03</span>
+            </div>
+            <h3 class="mt-5 text-lg font-bold leading-snug text-slate-900">答案は開発者に届かない</h3>
+            <p class="mt-3 text-[15px] leading-7 text-slate-600">採点の処理は先生の Google アカウントの中で完結します。答案が開発者のサーバーを通ることはありません。</p>
+          </div>
+        </div>
+        <!-- 公開後に追加：実測の数字（例：22名×8問の採点が約5分） -->
+      </div>
+    </section>
+
+    <!-- こんな先生に／使い方 -->
+    <section class="py-20 sm:py-24">
+      <div class="mx-auto grid max-w-6xl gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:gap-16">
+        <div>
+          <h2 class="text-2xl font-bold text-slate-900 sm:text-3xl">こんな先生に</h2>
+          <div class="mt-8 rounded-2xl bg-indigo-50/50 p-6 ring-1 ring-indigo-100 sm:p-8">
+            <ul class="space-y-5">
+              <li class="flex gap-3.5">
+                <span class="mt-0.5 flex h-6 w-6 flex-none items-center justify-center rounded-full bg-emerald-600 text-white"><svg viewBox="0 0 20 20" fill="currentColor" class="h-3.5 w-3.5" aria-hidden="true"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 0 1 0 1.4l-7.5 7.5a1 1 0 0 1-1.4 0L3.3 9.7a1 1 0 1 1 1.4-1.4l3.8 3.8 6.8-6.8a1 1 0 0 1 1.4 0Z" clip-rule="evenodd"/></svg></span>
+                <span class="leading-7 text-slate-700">記述式で理解を確かめたいが、採点の手間を考えて選択式にしている</span>
+              </li>
+              <li class="flex gap-3.5">
+                <span class="mt-0.5 flex h-6 w-6 flex-none items-center justify-center rounded-full bg-emerald-600 text-white"><svg viewBox="0 0 20 20" fill="currentColor" class="h-3.5 w-3.5" aria-hidden="true"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 0 1 0 1.4l-7.5 7.5a1 1 0 0 1-1.4 0L3.3 9.7a1 1 0 1 1 1.4-1.4l3.8 3.8 6.8-6.8a1 1 0 0 1 1.4 0Z" clip-rule="evenodd"/></svg></span>
+                <span class="leading-7 text-slate-700">プログラミング・IT の小テストで、コードや説明の記述を採点したい</span>
+              </li>
+              <li class="flex gap-3.5">
+                <span class="mt-0.5 flex h-6 w-6 flex-none items-center justify-center rounded-full bg-emerald-600 text-white"><svg viewBox="0 0 20 20" fill="currentColor" class="h-3.5 w-3.5" aria-hidden="true"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 0 1 0 1.4l-7.5 7.5a1 1 0 0 1-1.4 0L3.3 9.7a1 1 0 1 1 1.4-1.4l3.8 3.8 6.8-6.8a1 1 0 0 1 1.4 0Z" clip-rule="evenodd"/></svg></span>
+                <span class="leading-7 text-slate-700">採点のコメントまで、一人ひとりに返したい</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div id="how">
+          <h2 class="text-2xl font-bold text-slate-900 sm:text-3xl">使い方</h2>
+          <ol class="relative ml-4 mt-8 space-y-7 border-l-2 border-indigo-100 pl-8">
+            <li class="relative">
+              <span class="absolute -left-[49px] top-0 flex h-8 w-8 items-center justify-center rounded-full bg-indigo-600 font-display text-sm font-bold text-white ring-4 ring-slate-50">1</span>
+              <p class="leading-7 text-slate-700">Google Workspace Marketplace から Tenmeel を入れる</p>
+            </li>
+            <li class="relative">
+              <span class="absolute -left-[49px] top-0 flex h-8 w-8 items-center justify-center rounded-full bg-indigo-600 font-display text-sm font-bold text-white ring-4 ring-slate-50">2</span>
+              <p class="leading-7 text-slate-700">AI の API キー（Anthropic の Claude）を一度だけ登録する</p>
+            </li>
+            <li class="relative">
+              <span class="absolute -left-[49px] top-0 flex h-8 w-8 items-center justify-center rounded-full bg-indigo-600 font-display text-sm font-bold text-white ring-4 ring-slate-50">3</span>
+              <p class="leading-7 text-slate-700">小テストの Google フォームの「設定」→「テストにする」→「成績の発表」を<strong class="font-bold text-slate-900">「確認後に手動で表示する」</strong>にしておく（Tenmeel も採点の前に確認します）</p>
+            </li>
+            <li class="relative">
+              <span class="absolute -left-[49px] top-0 flex h-8 w-8 items-center justify-center rounded-full bg-indigo-600 font-display text-sm font-bold text-white ring-4 ring-slate-50">4</span>
+              <p class="leading-7 text-slate-700">小テストの Google フォームの「回答」→「スプレッドシートにリンク」で回答のスプレッドシートを作り、Tenmeel のサイドバーの［回答のシートを選ぶ］で、そのシートを選ぶ（フォームごとに最初の1回だけ）</p>
+            </li>
+            <li class="relative">
+              <span class="absolute -left-[49px] top-0 flex h-8 w-8 items-center justify-center rounded-full bg-indigo-600 font-display text-sm font-bold text-white ring-4 ring-slate-50">5</span>
+              <p class="leading-7 text-slate-700">Tenmeel から採点を始める（AI の点数とコメントは、フォームと回答のスプレッドシートに入ります）</p>
+            </li>
+            <li class="relative">
+              <span class="absolute -left-[49px] top-0 flex h-8 w-8 items-center justify-center rounded-full bg-emerald-600 font-display text-sm font-bold text-white ring-4 ring-slate-50">6</span>
+              <p class="leading-7 text-slate-700">採点結果を確認して、生徒に返す</p>
+            </li>
+          </ol>
+          <div class="mt-6 rounded-2xl border border-indigo-100 bg-indigo-50/60 p-5">
+            <p class="text-sm font-bold text-indigo-600">まず試してみたいときは</p>
+            <p class="mt-1.5 text-[15px] leading-7 text-slate-700">API キーを用意する前でも、<strong class="font-bold text-slate-900">お試しモード</strong>で、採点からコメントが入るまでの流れを体験できます（AI もキーも使いません）。新しい空のフォームで Tenmeel を開いて［このフォームをお試し用にする］を押すと、サンプルの設問が入り、そのまま試せます。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 必要なもの・費用 -->
+    <section class="border-t border-slate-200/70 bg-white py-20 sm:py-24">
+      <div class="mx-auto grid max-w-6xl items-start gap-12 px-4 sm:px-6 lg:grid-cols-[1fr_1.1fr] lg:gap-16">
+        <div>
+          <h2 class="text-2xl font-bold text-slate-900 sm:text-3xl">必要なもの・費用</h2>
+          <ul class="mt-8 space-y-4">
+            <li class="flex gap-3.5"><span class="mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-indigo-500"></span><span class="leading-7">Google アカウント（Google フォームが使えるもの）</span></li>
+            <li class="flex gap-3.5"><span class="mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-indigo-500"></span><span class="leading-7">Anthropic（Claude）の API キー：先生ご自身で取得していただきます</span></li>
+            <li class="flex gap-3.5"><span class="mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-indigo-500"></span><span class="leading-7">現在（パイロット期間中）は、Tenmeel を無料でご利用いただけます。今後、有料プランを設ける予定です。その場合は、事前にこのサイトとアドオンの画面でお知らせします。AI の利用料金は、これとは別に先生が Anthropic に直接お支払いいただきます</span></li>
+          </ul>
+        </div>
+
+        <div class="relative overflow-hidden rounded-3xl border border-emerald-200 bg-gradient-to-br from-emerald-50 via-white to-indigo-50/40 p-7 shadow-sm sm:p-9">
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="rounded-full bg-emerald-600 px-3 py-1 text-xs font-bold text-white">AI の費用の目安</span>
+            <span class="text-xs font-medium text-slate-500">標準のモデル（速くて費用の安いモデル）</span>
+          </div>
+          <p class="mt-6 text-sm font-bold text-slate-500">1答案あたり</p>
+          <p class="mt-1 flex flex-wrap items-baseline gap-x-2 text-slate-900">
+            <span class="text-lg font-bold">約</span>
+            <span class="font-display text-5xl font-extrabold tracking-tight text-emerald-600 sm:text-6xl">0.01〜0.03</span>
+            <span class="text-2xl font-bold">円</span>
+          </p>
+          <p class="mt-2 text-sm text-slate-600">設問の文や採点方針が長いと増えます。</p>
+          <div class="mt-6 grid gap-3 sm:grid-cols-2">
+            <div class="rounded-2xl bg-white/80 px-4 py-3 ring-1 ring-slate-200/80">
+              <p class="text-xs text-slate-500">授業での実績（2026年10月28日）<br>19名 × 4問（SQL を書く問題を含む）</p>
+              <p class="mt-1 text-xl font-bold text-slate-900">約2.2円</p>
+            </div>
+            <div class="rounded-2xl bg-white/80 px-4 py-3 ring-1 ring-slate-200/80">
+              <p class="text-xs text-slate-500">テスト用の答案（2026年10月15日）<br>20名 × 記述式9問</p>
+              <p class="mt-1 text-xl font-bold text-slate-900">約2.1円</p>
+            </div>
+          </div>
+          <p class="mt-6 text-xs leading-6 text-slate-500">使ったトークンの数から、2026年10月時点の Anthropic の料金と1ドル＝160円で計算した目安です（2026年10月時点：標準は Claude Haiku 5.5、高性能は Claude Sonnet 5.5）。フォームごとに、より高性能なモデルに切り替えることもでき、その場合はテスト用の答案（20名×9問）で約18円です。為替・答案の長さ・問題の数・Anthropic の料金の改定によって変わります。費用は先生の Anthropic のアカウントに請求されます。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 安心して使っていただくために -->
+    <section class="py-20 sm:py-24">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6">
+        <h2 class="text-2xl font-bold text-slate-900 sm:text-3xl">安心して使っていただくために</h2>
+        <div class="mt-10 grid gap-5 md:grid-cols-2">
+          <div class="flex gap-4 rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm">
+            <span class="flex h-10 w-10 flex-none items-center justify-center rounded-xl bg-indigo-50 text-indigo-600"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/><path d="M3 3l18 18"/></svg></span>
+            <div>
+              <h3 class="font-bold text-slate-900">氏名・メールアドレスは送らない</h3>
+              <p class="mt-1.5 text-[15px] leading-7 text-slate-600">AI に送るのは<strong class="font-bold text-slate-900">問題文と生徒の回答だけ</strong>です。生徒の氏名・メールアドレスは送りません（生徒が回答の中に氏名を書いた場合は、そのまま送られます）</p>
+            </div>
+          </div>
+          <div class="flex gap-4 rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm">
+            <span class="flex h-10 w-10 flex-none items-center justify-center rounded-xl bg-emerald-50 text-emerald-600"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2.5"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></span>
+            <div>
+              <h3 class="font-bold text-slate-900">AI の学習に使われない</h3>
+              <p class="mt-1.5 text-[15px] leading-7 text-slate-600">AI の送信先は Anthropic だけです。Anthropic は、API で送られた内容を AI の学習に使わないと定めています</p>
+            </div>
+          </div>
+          <div class="flex gap-4 rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm">
+            <span class="flex h-10 w-10 flex-none items-center justify-center rounded-xl bg-indigo-50 text-indigo-600"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg></span>
+            <div>
+              <h3 class="font-bold text-slate-900">返す前に、先生が必ず確認</h3>
+              <p class="mt-1.5 text-[15px] leading-7 text-slate-600">点数とコメントは自動では返しません。先生が確認してから生徒に返します。フォームの「成績の発表」が「送信直後に表示する」のままだと書き込んだ時点で生徒に見えてしまうため、Tenmeel は「確認後に手動で表示する」になっていることを確かめてから書き込みます</p>
+            </div>
+          </div>
+          <div class="flex gap-4 rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm">
+            <span class="flex h-10 w-10 flex-none items-center justify-center rounded-xl bg-emerald-50 text-emerald-600"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5" aria-hidden="true"><path d="M12 3l1.8 4.4L18 9.2l-4.2 1.8L12 15.5l-1.8-4.5L6 9.2l4.2-1.8L12 3Z"/><path d="M5 17h14M8 21h8"/></svg></span>
+            <div>
+              <h3 class="font-bold text-slate-900">AI が作ったことを、生徒に示せる</h3>
+              <p class="mt-1.5 text-[15px] leading-7 text-slate-600">フォームの説明文に「※AIが作成したコメントを、先生が確認しています」と表示できます（初期設定で表示）。<strong class="font-bold text-slate-900">高校生以下の生徒に使う場合は、この表示を残したままにしてください。</strong>Anthropic は、未成年に関わる用途では AI を使っていることを示すよう求めています</p>
+            </div>
+          </div>
+          <div class="flex gap-4 rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm">
+            <span class="flex h-10 w-10 flex-none items-center justify-center rounded-xl bg-indigo-50 text-indigo-600"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5" aria-hidden="true"><path d="M3 9l9-5 9 5-9 5-9-5Z"/><path d="M7 11.5V16c1.5 1.5 3 2 5 2s3.5-.5 5-2v-4.5"/></svg></span>
+            <div>
+              <h3 class="font-bold text-slate-900">学校のルールに沿って使う</h3>
+              <p class="mt-1.5 text-[15px] leading-7 text-slate-600">生徒の答案を AI で採点する前に、学校・自治体の生成 AI の利用ルールや個人情報の扱いのルールをご確認ください。必要な場合は、管理職などの確認を得てからご利用ください</p>
+            </div>
+          </div>
+          <a href="/privacy/" class="group flex items-center justify-between gap-4 rounded-2xl bg-slate-900 p-6 text-white shadow-sm hover:bg-slate-800">
+            <span>
+              <span class="block text-xs font-bold text-slate-400">もっと詳しく</span>
+              <span class="mt-1 block font-bold">詳しくはプライバシーポリシーをご覧ください。</span>
+            </span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 flex-none transition group-hover:translate-x-1" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 開発者について／お問い合わせ -->
+    <section class="border-t border-slate-200/70 bg-white py-20 sm:py-24">
+      <div class="mx-auto grid max-w-6xl gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:gap-16">
+        <div>
+          <h2 class="text-2xl font-bold text-slate-900 sm:text-3xl">開発者について</h2>
+          <p class="mt-6 text-lg font-bold text-slate-900">MCテック</p>
+          <p class="mt-3 leading-8 text-slate-600">MCテックは、IT 関連の授業を担当する教員が運営しています。自分の授業で記述式の小テストを続けるために、採点の負担を減らす道具として Tenmeel を作りました。</p>
+        </div>
+        <div id="contact">
+          <h2 class="text-2xl font-bold text-slate-900 sm:text-3xl">お問い合わせ</h2>
+          <div class="mt-6 rounded-2xl border border-slate-200/80 bg-slate-50 p-6 sm:p-7">
+            <p class="leading-7">ご質問・不具合のご報告は、次のメールアドレスまでお送りください。</p>
+            <a href="mailto:support@tenmeel.com" class="mt-4 inline-flex items-center gap-2 rounded-full bg-indigo-600 px-5 py-2.5 font-display text-base font-bold text-white shadow-sm hover:bg-indigo-500">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+              support@tenmeel.com
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-slate-200 bg-slate-50">
+    <div class="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+      <div class="flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
+        <a href="/" class="flex items-center gap-2.5 font-display text-base font-extrabold text-slate-900">
+          <img src="/favicon.svg" alt="" width="26" height="26" class="h-[26px] w-[26px]">
+          Tenmeel
+        </a>
+        <nav aria-label="フッター" class="flex flex-wrap gap-x-7 gap-y-3 text-sm font-medium text-slate-600">
+          <a class="hover:text-slate-900" href="/terms/">利用規約</a>
+          <a class="hover:text-slate-900" href="/privacy/">プライバシーポリシー</a>
+          <a class="hover:text-slate-900" href="mailto:support@tenmeel.com">お問い合わせ</a>
+        </nav>
+      </div>
+      <div class="mt-10 border-t border-slate-200 pt-6 text-xs leading-6 text-slate-400">
+        <p>© 2026 MCテック</p>
+        <p>Google フォームは Google LLC の商標です。Claude は Anthropic PBC の商標です。Tenmeel は Google の製品ではなく、Google による承認・提携を受けたものではありません。</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
