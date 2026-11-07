@@ -35,7 +35,7 @@
   <main class="doc mx-auto max-w-3xl px-4 pb-20 pt-12 sm:px-6 sm:pt-16">
     <p class="mb-4 inline-flex rounded-full border border-indigo-100 bg-indigo-50 px-3.5 py-1.5 text-xs font-bold text-indigo-600">Privacy Policy</p>
     <h1 class="text-3xl font-bold leading-snug tracking-tight sm:text-4xl">Tenmeel プライバシーポリシー</h1>
-    <p class="mb-8 mt-3 text-sm text-slate-500">施行日：2026年11月6日　／　最終更新日：2026年11月6日　／　運営者：MCテック（以下「開発者」）　／　<a href="/en/privacy/" hreflang="en" lang="en">English</a></p>
+    <p class="mb-8 mt-3 text-sm text-slate-500">施行日：2026年11月6日　／　最終更新日：2026年11月7日　／　運営者：MCテック（以下「開発者」）　／　<a href="/en/privacy/" hreflang="en" lang="en">English</a></p>
 
     <p>Tenmeel（テンミール、以下「本アドオン」）は、先生が Google フォームで実施した記述式の小テストを AI で採点し、点数とコメントをフォームに書き込むアドオンです。このポリシーは、本アドオンが扱う情報と、その扱い方を説明するものです。</p>
 
@@ -79,8 +79,8 @@
     <h2 id="ai">3. AI の提供会社への送信</h2>
     <p>採点のため、次の内容を AI の提供会社に送信します。送信先は <strong>Anthropic（Claude）だけ</strong>です。AI のモデルは Anthropic の Claude を使います。先生は、フォームごとに、ほかの Anthropic のモデルに変えられます。</p>
     <ul>
-      <li>送信するもの：設問の文、満点（配点）、先生が設定した採点方針（全体と設問ごと）、フォームの解答集に登録された正解と一致した答えの例、生徒の回答本文、照合用の番号（1回の依頼の中で回答に振る 1〜8 の番号で、個人を特定するものではありません）</li>
-      <li>送信しないもの：生徒の氏名、メールアドレス、回答のタイムスタンプ、回答の ID、名簿、その他の識別情報</li>
+      <li>送信するもの：設問の文、満点（配点）、先生が設定した採点方針（全体と設問ごと）、記述式（短文）で、満点になっている他の生徒の回答の例（回答のみで他の情報は付けません）、生徒の回答本文、照合用の番号（内部で任意に振る番号で、個人を特定するものではありません）</li>
+      <li>送信しないもの：生徒の氏名、メールアドレス、回答のタイムスタンプ、回答の ID（Google フォームが回答ごとに付ける番号。採点結果を正しい回答に書き戻すために、Tenmeel の中でだけ使います。回答のシートの隠れた列に記録します）、名簿、その他の識別情報</li>
     </ul>
     <p><strong>ご注意：</strong>生徒が回答本文の中に自分の氏名などを書いた場合、その内容はそのまま AI に送信されます。</p>
     <p>送信された内容の扱いは、Anthropic の<a href="https://www.anthropic.com/legal/commercial-terms">商用規約</a>と<a href="https://www.anthropic.com/legal/privacy">プライバシーポリシー</a>に従います。Anthropic の商用規約では、API を通じて送信された内容を、Anthropic が AI モデルの学習に使わないことが定められています。</p>
@@ -170,7 +170,7 @@
           <a class="hover:text-slate-900" href="/terms/">利用規約</a>
           <a class="hover:text-slate-900" href="/privacy/">プライバシーポリシー</a>
           <a class="hover:text-slate-900" href="/en/privacy/" hreflang="en" lang="en">Privacy Policy (English)</a>
-          <a class="hover:text-slate-900" href="mailto:support@tenmeel.com">お問い合わせ</a>
+          <a class="hover:text-slate-900" href="/support/">サポート</a>
         </nav>
       </div>
       <div class="mt-10 border-t border-slate-200 pt-6 text-xs leading-6 text-slate-400">
