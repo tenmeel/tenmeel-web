@@ -32,7 +32,7 @@
   <main class="doc mx-auto max-w-3xl px-4 pb-20 pt-12 sm:px-6 sm:pt-16">
     <p class="mb-4 inline-flex rounded-full border border-indigo-100 bg-indigo-50 px-3.5 py-1.5 text-xs font-bold text-indigo-600">Support</p>
     <h1 class="text-3xl font-bold leading-snug tracking-tight sm:text-4xl">Tenmeel サポート</h1>
-    <p class="mb-8 mt-3 text-sm text-slate-500">最終更新日：2026年11月7日　／　運営者：MCテック　／　<a href="#english" lang="en">English</a></p>
+    <p class="mb-8 mt-3 text-sm text-slate-500">最終更新日：2026年11月9日　／　運営者：MCテック　／　<a href="#english" lang="en">English</a></p>
 
     <h2 id="contact">お問い合わせ</h2>
     <p>ご質問・不具合のご報告・ご要望は、次のメールアドレスまでお送りください。順にお返事します。</p>
@@ -98,6 +98,15 @@
     <h3 id="fix">AI の点数やコメントを直したいときは？</h3>
     <p>AI の点数とコメントは「案」です。生徒に返す前に、必ず確認してください。直すときは、フォームの「回答」→「個別」で、点数とフィードバックを直します。生徒に返すのは、フォームの「スコアを通知」で先生が行います。Tenmeel が自動で生徒に返すことはありません。</p>
 
+    <h3 id="guidelines">採点方針は、どう書けばよいですか？</h3>
+    <p>採点方針は、サイドバーの「✎ 採点方針を書く」で、テスト全体と設問ごとに書けます。書くときは、次の3つに気をつけると、思ったとおりの点になりやすくなります。</p>
+    <ul>
+      <li><strong>AI は、方針に書いた点の刻みで点を付けることが多いです。</strong>たとえば「1つにつき5点」とだけ書くと、点は 0・5・10 点のどれかになりやすくなります。</li>
+      <li><strong>間の点を付けたいときは、その条件も書いてください。</strong>例（目的を2つ答える10点の問題）：「目的1つにつき5点。目的は合っているが説明が足りないときは3点。しくみの説明だけでも、目的が読み取れれば2点。」</li>
+      <li><strong>数え方に迷いそうな答えの扱いも書くと、生徒の間で点がそろいます。</strong>例：「1つの文に目的が2つ入っていたら、2つと数える。」</li>
+    </ul>
+    <p>方針を直して［保存］すると、まだ採点していない回答から新しい方針が使われます。採点が済んだ回答に使うには、「↻ 設問を採点し直す」で、設問ごとに採点し直してください（先生が直した答案は、残すか、いっしょに採点し直すかを選べます。採点し直す前の点とコメントは、回答のシートの控えのタブに残ります）。</p>
+
     <h3 id="loading">サイドバーが「読み込み中」のままです。</h3>
     <p>採点のあとなどは、最新の状態を読み込むのに 20〜30 秒かかることがあります。しばらく待っても出ないときは、サイドバーを閉じて、もう一度開いてください。</p>
 
@@ -134,6 +143,7 @@
         <li><strong>Language:</strong> The add-on's interface is currently in Japanese only.</li>
         <li><strong>Try it without an API key:</strong> In a new, empty form, open Extensions &gt; Tenmeel &gt; 開く (Open) and click [このフォームをお試し用にする] (Use this form for a trial). Sample questions are added; reload the form. Link a response spreadsheet (Responses &gt; Link to Sheets), click [リンクしたので、回答のシートを選ぶ] (Select the linked response sheet) and choose it, then click [採点する（お試し）] (Grade - trial). No AI is called and no data leaves your account.</li>
         <li><strong>Before returning scores:</strong> Set Settings &gt; Quizzes &gt; Release grades to "Later, after manual review", so students do not see AI feedback before you check it.</li>
+        <li><strong>Writing grading guidelines:</strong> You can write guidelines for the whole quiz and for each question (sidebar: ✎ 採点方針を書く). The AI tends to follow the point steps you write. If you write only "5 points per item", scores tend to be 0, 5 or 10. If you want partial credit, describe it, for example: "5 points per correct purpose. 3 points if the purpose is right but the explanation is thin. 2 points if only the mechanism is explained but the purpose can be inferred." Also say how to count unclear answers (for example, "if one sentence contains two purposes, count it as two") so that scores are consistent across students. After you edit and save the guidelines, they apply to answers that have not been graded yet. To apply them to answers already graded, use ↻ 設問を採点し直す (Regrade a question) in the sidebar and regrade each question (you can choose whether to keep the answers you have corrected yourself or regrade them too; the scores and feedback from before regrading are kept in a backup tab of the response sheet).</li>
         <li><strong>When you stop using Tenmeel:</strong> Delete your API key in the sidebar (⚙ 設定 (Settings) &gt; [APIキーを削除] (Delete API key)), then uninstall the add-on from its Google Workspace Marketplace page.</li>
         <li><a href="/en/privacy/">Privacy Policy (English)</a> / <a href="/terms/">Terms of Service (Japanese)</a></li>
       </ul>
