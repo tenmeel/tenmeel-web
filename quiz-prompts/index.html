@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>小テストを作るプロンプト｜Tenmeel（テンミール）</title>
+  <meta name="description" content="授業のスライドやプリントから、無料の AI で記述式の小テスト（問題・正解・採点基準・Google フォーム）を作るためのプロンプトです。">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="stylesheet" href="/fonts/fonts.css">
+  <link rel="stylesheet" href="/tw.css">
+  <link rel="stylesheet" href="/base.css">
+  <style>
+    .doc ol { margin: 0 0 1rem; padding-left: 1.5em; list-style: decimal; }
+    .doc ol li { margin-bottom: 0.4rem; }
+    .prompt { position: relative; margin: 0.75rem 0 1.5rem; border: 1px solid #e2e8f0; border-radius: 1rem; background: #0f172a; }
+    .prompt pre { margin: 0; padding: 3.25rem 1.1rem 1.1rem; overflow-x: auto; max-height: 28rem; overflow-y: auto; color: #e2e8f0; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.8rem; line-height: 1.7; white-space: pre-wrap; overflow-wrap: anywhere; letter-spacing: 0; }
+    .prompt .copy { position: absolute; top: 0.6rem; right: 0.6rem; border-radius: 9999px; background: #4f46e5; color: #fff; font-size: 0.8rem; font-weight: 700; padding: 0.4rem 1rem; cursor: pointer; border: 0; }
+    .prompt .copy:hover { background: #4338ca; }
+    .prompt .label { position: absolute; top: 0.85rem; left: 1.1rem; color: #94a3b8; font-size: 0.75rem; font-weight: 700; }
+  </style>
+</head>
+<body class="bg-slate-50 font-sans text-slate-700 antialiased">
+
+  <header class="sticky top-0 z-50 border-b border-slate-200/60 bg-white/80 backdrop-blur-md">
+    <div class="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
+      <a href="/" class="flex flex-none items-center gap-2.5 font-display text-lg font-extrabold text-slate-900">
+        <img src="/favicon.svg" alt="" width="30" height="30" class="h-[30px] w-[30px]">
+        Tenmeel
+      </a>
+      <nav aria-label="サイト内" class="flex items-center gap-3 whitespace-nowrap text-[13px] font-medium text-slate-500 min-[400px]:gap-5 sm:gap-7 sm:text-sm">
+        <a class="hidden hover:text-slate-900 sm:inline" href="/#features">特長</a>
+        <a class="hidden hover:text-slate-900 sm:inline" href="/#how">使い方</a>
+        <a class="hidden hover:text-slate-900 min-[400px]:inline" href="/privacy/">プライバシー</a>
+        <a class="rounded-full bg-slate-900 px-3.5 py-2 text-white hover:bg-slate-700 sm:px-4" href="/support/#contact">お問い合わせ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="doc mx-auto max-w-3xl px-4 pb-20 pt-12 sm:px-6 sm:pt-16">
+    <p class="mb-4 inline-flex rounded-full border border-indigo-100 bg-indigo-50 px-3.5 py-1.5 text-xs font-bold text-indigo-600">Prompts</p>
+    <h1 class="text-3xl font-bold leading-snug tracking-tight sm:text-4xl">小テストを作るプロンプト</h1>
+    <p class="mb-8 mt-3 text-sm text-slate-500">最終更新日：2026年11月16日　／　運営者：MCテック</p>
+
+    <p>授業のスライドやプリントから、無料の AI で小テストを作るためのプロンプト（AI への頼み方の文）です。</p>
+    <ul>
+      <li>AI が作るもの：問題・正解・採点基準・Google フォームを作るスクリプト</li>
+      <li>先生がすること：AI の出したものを読んで、直したいところを一言で伝えるだけ</li>
+      <li>できあがったフォームの記述式の答えは、<a href="/">Tenmeel</a> で採点できます</li>
+    </ul>
+    <p>ためしに作った例（専門学校1年・データベース・5問50点）では、先生の直しは2回ほどで、採点まで通りました。</p>
+
+    <h2 id="prepare">用意するもの</h2>
+    <ul>
+      <li>Google アカウント（学校で使っているもの）</li>
+      <li>Gemini Notebook（無料。旧名 NotebookLM）。ほかの AI でも使えますが、授業の資料を入れておけるので、Gemini Notebook をおすすめします</li>
+      <li>授業のスライドやプリント（PDF など）</li>
+      <li>Tenmeel（記述式の答えを採点するとき）</li>
+    </ul>
+
+    <h2 id="notes">気をつけること</h2>
+    <ul class="key-points">
+      <li>生徒の名前や答案は、AI に入れないでください。入れるのは授業の資料だけです。</li>
+      <li>AI が出したものは下書きです。必ず読んでから使ってください。</li>
+      <li>作ったフォームには氏名の欄がありません。メールアドレスで、だれの答えかが分かります（ログインした人だけ答えられます）。</li>
+    </ul>
+
+    <h2 id="flow">流れ</h2>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>手順</th><th>だれが</th><th>すること</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>先生</td><td>Gemini Notebook で新しいノートブックを作り、授業の資料を入れる</td></tr>
+          <tr><td>2</td><td>先生→AI</td><td><a href="#prompt1">プロンプト①</a>を貼る（いちばん下の「範囲」などを書きかえる）→ 問題の一覧が出る</td></tr>
+          <tr><td>3</td><td>先生</td><td>問題を読み、直したいところをふつうの言葉で書く。「確かめてほしいこと」にも答える。よければ「この問題で決定します」</td></tr>
+          <tr><td>4</td><td>先生→AI</td><td><a href="#prompt2">プロンプト②</a>を貼る → 正解と採点基準が出る</td></tr>
+          <tr><td>5</td><td>先生</td><td>「確かめてほしいこと」に必ず答える（答えずに使うと、点がずれることがあります）。直った採点基準が出る</td></tr>
+          <tr><td>6</td><td>先生→AI</td><td><a href="#prompt3">プロンプト③</a>を貼る → フォームを作るスクリプトが出る</td></tr>
+          <tr><td>7</td><td>先生</td><td>スクリプトを動かして、フォームを作る（下の「<a href="#script">スクリプトの動かし方</a>」）</td></tr>
+          <tr><td>8</td><td>先生</td><td>Tenmeel に採点基準を入れる（下の「<a href="#tenmeel">Tenmeel への入れ方</a>」）</td></tr>
+          <tr><td>9</td><td>先生</td><td>小テストを行い、Tenmeel で採点する</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>新しい小テストを作るときは、Gemini Notebook のチャットの履歴を消してから①を貼ってください（前の話が混じらないように）。</p>
+
+    <h2 id="script">スクリプトの動かし方（手順7）</h2>
+    <ol>
+      <li>AI の回答の下にあるコピーのマークを押す</li>
+      <li>script.google.com を開き、［新しいプロジェクト］を押す</li>
+      <li>最初から入っている文を全部消して、貼りつける</li>
+      <li>最初の <code>```javascript</code> の行と、最後の <code>```</code> の行を消す。いちばん最後が <code>}}</code> なら、<code>}</code> を1つ消す</li>
+      <li>［保存］を押してから、［実行］を押す</li>
+      <li>はじめての時は「承認が必要です」と出るので、［権限を確認］を押す
+        <ul>
+          <li>自分のアカウントを選ぶと、「（プロジェクト名）が Google アカウントへのアクセスを求めています」と出る</li>
+          <li>求められるのは「Google ドライブのフォームの表示と管理」だけ。いちばん下までスクロールして、許可のボタンを押す</li>
+          <li>「Google はこのアプリを確認していません」と出たときは、［詳細］→［（プロジェクト名）に移動］を押す。自分で作ったスクリプトなので、心配いりません</li>
+        </ul>
+      </li>
+      <li>下の「実行ログ」に、フォームの「編集の画面」と「答える画面」のアドレスが出る</li>
+      <li>「手で」で始まる行が出たら、そのとおりにフォームを直す（例：選択式の正解を選ぶ）</li>
+      <li>フォームを開き、設定の「成績の発表」が「確認後に手動で表示する」になっているか確かめる</li>
+    </ol>
+
+    <h2 id="tenmeel">Tenmeel への入れ方（手順8）</h2>
+    <ol>
+      <li>フォームの［回答］→［スプレッドシートにリンク］</li>
+      <li>フォームの右上のパズルのボタン（アドオン）→「Tenmeel」→［開く］で Tenmeel を開き、そのシートを選ぶ</li>
+      <li>手順5の採点基準のうち、「## Q」で始まる部分だけをマウスで選んでコピーし、［採点方針を書く］→［まとめて貼り付け］に貼る</li>
+    </ol>
+
+    <h2 id="prompt1">プロンプト①：問題を作る</h2>
+    <div class="prompt">
+      <span class="label">プロンプト①</span>
+      <button type="button" class="copy" data-target="p1">コピー</button>
+      <pre id="p1">あなたは、先生の小テストづくりを手伝う助手です。
+
+【決まり】
+- 入っている授業の資料だけを元に作る。資料にない知識・用語は使わない。
+- 問題は、【入力】の「範囲」の資料の内容を中心にする。ほかの資料の内容は、その範囲を理解するのに必要な分だけ使ってよい。
+- 用語を答えさせる問題は、選択式で1〜2問まで。ほかは、理由・違い・困ることなどを説明させる記述式にする。
+- 1問で1つのことを聞く。問題文に、その問題やほかの問題の答え・ヒントを書かない。答えに使う用語を、問題文で指定しない（例：「〇〇と△△を使って説明しなさい」としない）。答えの向きを示す言葉も書かない（例：「〇〇の観点から」「〇〇を保てない理由」としない）。
+- 答えが資料の範囲で1つに決まる問い方にする。
+- 資料だけで決められないことは、勝手に決めずに「確かめてほしいこと」に書く。
+- 生徒の名前などの個人情報は扱わない。
+
+【出力】（次の2つだけを書く。挨拶や説明は書かない）
+
+■ 問題の一覧
+問題ごとに、次の4行を書く。
+Q（番号）（形式・配点）
+問題文：（フォームにそのまま貼れる文。配点は書かない。選択式なら選択肢も書く）
+確かめること：（この問題で何ができるかを見るか。一言）
+元にした資料：（資料名とページ）
+
+形式は「選択式」「記述式（短文）」「記述式（段落）」のどれか。理由や違いを説明させる問題は「記述式（段落）」にする。
+
+■ 確かめてほしいこと
+問題の中身についてだけ、多くて3つ（範囲・難しさ・資料で決めきれない正解など）。それぞれ、すすめる扱いも書く。採点の話（部分点など）は、あとで決めるので書かない。問題文にヒントを足すことはすすめない。文字数や貼り付け方など形式のことは書かない。なければ「なし」。
+
+先生が直したいところを書いたら、直した一覧を同じ形で出す。
+
+【入力】
+範囲：（問題にしたい資料の名前か単元名。例：第7回_データベース.pdf）
+問題の数と合計点：5問・50点
+（任意）形式の希望：（例：選択式2問・記述式3問／すべて記述式）
+（任意）対象の学年：</pre>
+    </div>
+
+    <h2 id="prompt2">プロンプト②：正解と採点基準を作る</h2>
+    <p>①のあと、「この問題で決定します。」に続けて貼ってください。</p>
+    <div class="prompt">
+      <span class="label">プロンプト②</span>
+      <button type="button" class="copy" data-target="p2">コピー</button>
+      <pre id="p2">決定した問題の一覧について、正解と採点基準を作ってください。
+
+【決まり】
+- 問題で聞いていることだけを点にする。聞いていないことを書いた・書かないで、点を変えない。
+- 言いかえとして認めるのは、資料にある言葉・説明だけ。資料にない専門用語を、採点基準に足さない。
+- 見る内容ごとに、満点・半分・0点の3段階と、それぞれの条件を書く。同じ答えを2つの段階に入れない。
+- 一言だけの短い答えでも、問題で聞いていることそのものなら満点にする。理由や説明を求めている問題で、理由のない一言だけなら半分以下にする。どちらかをはっきり書く。
+- 問題で説明を求めていない用語の中身（例：第二正規形を聞く問題での、第一正規形の定義）は点にしない。
+- 用語だけを書いた答えと、その用語の中身を自分の言葉で書いた答えは、同じ点にする。
+
+【作り方】（頭の中で行い、途中の考えは書かない）
+- 問題ごとに、生徒が書きそうな答え（正解・言いかえ・半分・迷う・間違い）を考えて採点してみて、点が決まらない答えがあれば採点基準に書き足す。
+- 出す前に、採点基準に書いた言葉を1つずつ資料と見比べ、資料にない言葉は消すか、資料の言葉に置きかえる。
+
+【出力】（次の3つだけを書く。挨拶や説明は書かない）
+
+■ 正解
+問題ごとに「Q（番号）：正解」を1行で。選択式は選択肢の文、記述式は模範解答（2〜4文）。
+
+■ 採点基準（Tenmeel に貼る形）
+記述式の問題だけについて、次の形で、全部を1つのコードの枠（```）の中に書く。問題と問題の間は空行1つ。1つの問題の中には空行を入れない。
+## Q（番号）
+採点基準：（合計の点数と、見る内容。内容ごとに、満点・半分・0点の条件。言いかえとして認めるもの。点にも減点にもしないこと。減点しないこと）
+
+■ 確かめてほしいこと
+点の付け方について、迷うところを多くて3つ（例：この答えは半分か0点か、この内容は問題で聞いているか）。それぞれ、すすめる扱いも書く。形式のことは書かない。なければ「なし」。
+
+先生が答えたら、直した3つを同じ形で出す。</pre>
+    </div>
+
+    <h2 id="prompt3">プロンプト③：Google フォームを作るスクリプト</h2>
+    <p>②のあと、「採点基準はこれで決定します。」に続けて貼ってください。</p>
+    <div class="prompt">
+      <span class="label">プロンプト③</span>
+      <button type="button" class="copy" data-target="p3">コピー</button>
+      <pre id="p3">決定した問題と正解で、Google フォームの小テストを作るスクリプトを作ってください。
+
+下の雛形の「TITLE」と「DATA」の中身だけを埋めてください。ほかの部分は1文字も変えないでください。全体を1つのコードの枠（```）の中に出してください。説明は書かないでください。
+
+TITLE は「（範囲の名前） 小テスト」の形にする（ファイル名なら拡張子や記号を除いた短い名前）。
+DATA の書き方：
+- title は必ず「Q（番号）：」（全角のコロン）で始め、そのあとに問題文
+- type は "choice"（選択式）・"short"（記述式（短文））・"paragraph"（記述式（段落））のどれか
+- choice は choices に選択肢の文だけ（「ア」「1.」などの記号は付けない）、answer に正しい選択肢の文（choices の中の1つをそのまま写す）
+- short は answer に正解の文（なければ ""）
+- paragraph は answer を "" にする
+
+雛形：
+function createQuiz() {
+  var TITLE = '（範囲の名前） 小テスト';
+  var DATA = [
+    { title: 'Q1：（問題文）', type: 'choice', points: 10, choices: ['（選択肢1）', '（選択肢2）', '（選択肢3）', '（選択肢4）'], answer: '（正しい選択肢）' },
+    { title: 'Q2：（問題文）', type: 'short', points: 10, answer: '（正解）' },
+    { title: 'Q3：（問題文）', type: 'paragraph', points: 10, answer: '' }
+  ];
+
+  var form = FormApp.create(TITLE);
+  form.setTitle(TITLE);
+  form.setIsQuiz(true);
+  form.setEmailCollectionType(FormApp.EmailCollectionType.VERIFIED);
+  form.setLimitOneResponsePerUser(false);
+  var notes = [];
+  DATA.forEach(function (q) {
+    if (q.type === 'choice') {
+      var item = form.addMultipleChoiceItem().setTitle(q.title).setPoints(q.points);
+      item.setChoices(q.choices.map(function (c) { return item.createChoice(c, c === q.answer); }));
+      if (q.choices.indexOf(q.answer) &lt; 0) notes.push(q.title.split('：')[0] + ' は正解が選択肢と一致しません。フォームで正解を選んでください');
+    } else if (q.type === 'short') {
+      form.addTextItem().setTitle(q.title).setPoints(q.points);
+      if (q.answer) notes.push(q.title.split('：')[0] + ' の正解：' + q.answer);
+    } else {
+      form.addParagraphTextItem().setTitle(q.title).setPoints(q.points);
+    }
+  });
+  try { form.setPublished(true); } catch (e) {}
+  Logger.log('編集の画面：' + form.getEditUrl());
+  Logger.log('答える画面：' + form.getPublishedUrl());
+  notes.forEach(function (n) { Logger.log('手で ' + n); });
+  Logger.log('あと：記述式（短文）の正解を「解答集」に入れる。設定の「成績の発表」が「確認後に手動」か確かめる。答える画面で答えられなければ、右上の［公開］を押す。');
+}</pre>
+    </div>
+  </main>
+
+  <script>
+    document.querySelectorAll('.prompt .copy').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var text = document.getElementById(btn.dataset.target).textContent;
+        function done(ok) {
+          btn.textContent = ok ? 'コピーしました' : 'コピーできませんでした';
+          setTimeout(function () { btn.textContent = 'コピー'; }, 2000);
+        }
+        function fallback() {
+          var ta = document.createElement('textarea');
+          ta.value = text; ta.setAttribute('readonly', ''); ta.style.position = 'fixed'; ta.style.opacity = '0';
+          document.body.appendChild(ta); ta.select();
+          var ok = false; try { ok = document.execCommand('copy'); } catch (e) {}
+          document.body.removeChild(ta); done(ok);
+        }
+        if (navigator.clipboard && window.isSecureContext) {
+          navigator.clipboard.writeText(text).then(function () { done(true); }, fallback);
+        } else { fallback(); }
+      });
+    });
+  </script>
+
+  <footer class="border-t border-slate-200 bg-slate-50">
+    <div class="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+      <div class="flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
+        <a href="/" class="flex items-center gap-2.5 font-display text-base font-extrabold text-slate-900">
+          <img src="/favicon.svg" alt="" width="26" height="26" class="h-[26px] w-[26px]">
+          Tenmeel
+        </a>
+        <nav aria-label="フッター" class="flex flex-wrap gap-x-7 gap-y-3 text-sm font-medium text-slate-600">
+          <a class="hover:text-slate-900" href="/terms/">利用規約</a>
+          <a class="hover:text-slate-900" href="/privacy/">プライバシーポリシー</a>
+          <a class="hover:text-slate-900" href="/support/">サポート</a>
+        </nav>
+      </div>
+      <div class="mt-10 border-t border-slate-200 pt-6 text-xs leading-6 text-slate-400">
+        <p>© 2026 MCテック</p>
+        <p>Google フォーム、Gemini、NotebookLM は Google LLC の商標です。Claude は Anthropic PBC の商標です。Tenmeel は Google の製品ではなく、Google による承認・提携を受けたものではありません。</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
